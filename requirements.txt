@@ -1,0 +1,10 @@
+argilla==2.1.0
+chromadb==0.5.5
+langchain==0.2.16
+langchain-chroma==0.1.3
+langchain-community==0.2.16
+pre-commit==3.8.0
+pypdf==4.3.1
+pytest==8.3.2
+python-dotenv==1.0.1
+ruff==0.6.4
