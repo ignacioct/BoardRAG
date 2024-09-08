@@ -1,3 +1,21 @@
+"""
+Python script that queries the RAG model with a given query and returns the response.
+
+The script connects to the database, searches for the query in the database, builds the prompt, and generates the response using the Ollama model.
+
+The response includes the generated text, sources, original query, and context.
+
+The script can be run from the command line with the query_text argument.
+
+Example:
+    python query_rag.py --query_text "What is the capital of France?"
+
+The script can also include sources and context in the response using the include_sources and include_context arguments.
+
+Example:
+    python query_rag.py --query_text "What is the capital of France?" --include_sources --include_context
+"""
+
 import argparse
 from typing import Dict, Union
 import os
