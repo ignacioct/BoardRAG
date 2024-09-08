@@ -101,9 +101,9 @@ JINJA_TEMPLATE_PATH = "rag_query_pixegami.txt"
 
 ## Future work
 
--[] Visualize chat results using Argilla
--[] Build a Gradio interface for the RAG model
--[] Dockerize the application
--[] Add more rulesets to the database, alongside their test files
--[] Include a CI/CD pipeline
+- [ ] Visualize chat results using Argilla
+- [ ] Build a Gradio interface for the RAG model
+- [ ] Dockerize the application
+- [ ] Add more rulesets to the database, alongside their test files
+- [ ] Include a CI/CD pipeline
 
