@@ -2,13 +2,13 @@
 Script for loading the database into Argilla and visualizing the data.
 """
 
-from dotenv import load_dotenv
 import os
 import warnings
 
 from embedding_function import get_embedding_function
 
 import argilla as rg
+from dotenv import load_dotenv
 from langchain_community.vectorstores.chroma import Chroma
 
 # Ignore deprecation warnings.

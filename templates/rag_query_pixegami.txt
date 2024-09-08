@@ -1,0 +1,6 @@
+Answer the question based only on the following content:
+{context}
+
+---
+Anser the question based on the above context:
+{question}

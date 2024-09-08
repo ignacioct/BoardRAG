@@ -6,13 +6,13 @@ The documents are split into chunks and added to the database, once the embeddin
 
 import argparse
 import os
-from dotenv import load_dotenv
 import shutil
 from typing import List
 import warnings
 
 from embedding_function import get_embedding_function
 
+from dotenv import load_dotenv
 from langchain_community.vectorstores.chroma import Chroma
 from langchain.schema.document import Document
 from langchain_community.document_loaders import PyPDFDirectoryLoader
