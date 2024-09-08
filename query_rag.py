@@ -27,20 +27,20 @@ def query_rag(query_text: str) -> Dict[str, Union[str, Dict]]:
     """
 
     # Connect to the database
-    print("🔗Connecting to the database...")
+    print("🔗 Connecting to the database...")
     embedding_function = get_embedding_function()
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
 
     # Search in the database
-    print("🔍Searching in the database...")
+    print("🔍 Searching in the database...")
     results = db.similarity_search_with_score(query_text, k=5)
 
     # Build the prompt
-    print("🔮Building the prompt ...")
+    print("🔮 Building the prompt ...")
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
     prompt = load_jinja2_prompt(context=context_text, question=query_text)
 
-    print("🍳Generating the response...")
+    print("🍳 Generating the response...")
     model = Ollama(model=GENERATOR_MODEL)
     response_text = model.invoke(prompt)
 
@@ -80,13 +80,13 @@ def main():
 
     response = query_rag(query_text)
 
-    response_text = f"🤖Response: {response['response_text']}"
+    response_text = f"🤖 Response: {response['response_text']}"
 
     if include_sources:
-        response_text += f"\n\n\n📜Sources: {response['sources']}"
+        response_text += f"\n\n\n 📜Sources: {response['sources']}"
 
     if include_context:
-        response_text += f"\n\n\n🌄Context: {response['context']}"
+        response_text += f"\n\n\n 🌄Context: {response['context']}"
 
     print(response_text)
 
