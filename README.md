@@ -74,6 +74,16 @@ python query.py --query_text "How can I build a hotel in Monopoly?"
 
 You can also include the flags `--include_sources` and `include_contexts` to include the sources and chunks used to build the answer, respectively. Remember that the LLM of choice (set by the environment variable `GENERATOR_MODEL`) must be downloaded in Ollama.
 
+### Gradio Interface
+
+If you want to use a Gradio interface to query the RAG model, please run the following command:
+
+```bash
+python app.py
+```
+
+This will start a Gradio interface where you can input your question and get the answer from the RAG model. Remember that for the Gradio interface to work, the LLM of choice (set by the environment variable `GENERATOR_MODEL`) must be downloaded in Ollama, and Ollama must be running. The database must also be populated.
+
 ### Tests
 
 To run the tests, please run the following command:
