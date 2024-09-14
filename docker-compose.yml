@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - 11434:11434
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    
+
+  gradio:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.app
+    ports:
+      - "7860:7860"
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_URL=http://0.0.0.0:11434 # Replace with the actual URL/port if needed
+
+volumes:
+  ollama:
+
