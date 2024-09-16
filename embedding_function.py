@@ -10,15 +10,17 @@ from langchain_community.embeddings.ollama import OllamaEmbeddings
 # Load the environment variables
 load_dotenv()
 EMBEDDER_MODEL = os.getenv("EMBEDDER_MODEL")
-
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434")
+EMBEDDER_MODEL = os.getenv("EMBEDDER_MODEL")
 
 def get_embedding_function():
     """
     Returns the embedding function to be used for the embeddings. The function is run locally.
     """
-
+   
+   
     embeddings = OllamaEmbeddings(
-        model=EMBEDDER_MODEL,
+        model=EMBEDDER_MODEL, base_url= OLLAMA_URL
     )
 
     return embeddings
