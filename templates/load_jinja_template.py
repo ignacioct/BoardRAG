@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from langchain.prompts import PromptTemplate
 
 load_dotenv()
-JINJA_TEMPLATE_PATH = "templates/" + os.getenv("JINJA_TEMPLATE_PATH")
+JINJA_TEMPLATE_PATH =os.getenv("JINJA_TEMPLATE_PATH")
 
 
 def load_jinja2_prompt(context: str, question: str) -> PromptTemplate:

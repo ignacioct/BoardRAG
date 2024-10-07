@@ -31,6 +31,7 @@ from langchain_community.llms.ollama import Ollama
 load_dotenv()
 CHROMA_PATH = os.getenv("CHROMA_PATH")
 GENERATOR_MODEL = os.getenv("GENERATOR_MODEL")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434")
 
 
 def query_rag(query_text: str) -> Dict[str, Union[str, Dict]]:
@@ -59,7 +60,8 @@ def query_rag(query_text: str) -> Dict[str, Union[str, Dict]]:
     prompt = load_jinja2_prompt(context=context_text, question=query_text)
 
     print("🍳 Generating the response...")
-    model = Ollama(model=GENERATOR_MODEL)
+    model = Ollama(model=GENERATOR_MODEL,
+                   base_url = OLLAMA_URL)
     response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
